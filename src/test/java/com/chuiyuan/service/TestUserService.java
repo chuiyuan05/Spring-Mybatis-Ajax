@@ -1,7 +1,9 @@
 package com.chuiyuan.service;
 
 
+import com.chuiyuan.model.User;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,20 +28,25 @@ public class TestUserService {
 //        userService = (UserService)ctx.getBean("userService");
 //        user = new User();
 //        user.setUserId(112);
+        System.out.println("init");
     }
 
     @Test
     public void hasMatchUser(){
-
+        boolean b1 = userService.hasMatchUser("admin","123456");
+        boolean b2 = userService.hasMatchUser("admin","123");
+        Assert.assertTrue(b1);
+        Assert.assertTrue(b2);
     }
 
     @Test
     public void findUserByUserName(){
-
+        User user = userService.findUserByUserName("admin");
+        Assert.assertEquals(user.getUserName(),"admin");
     }
 
     @AfterClass
     public static void clear(){
-
+        System.out.println("clear");
     }
 }

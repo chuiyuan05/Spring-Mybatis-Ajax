@@ -14,6 +14,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     compile 'javax.servlet:javax.servlet-api:3.1.0'
     compile 'org.springframework:spring-webmvc:4.3.1.RELEASE'
+    //needed when test with junit
     compile 'org.springframework:spring-test:4.3.1.RELEASE'
     compile 'log4j:log4j:1.2.17'
     //for mybatis cooperation with spring
