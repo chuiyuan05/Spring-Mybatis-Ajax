@@ -34,7 +34,7 @@ public class TestUserService {
     }
 
     @AfterClass
-    public void clear(){
+    public static void clear(){
 
     }
 }
