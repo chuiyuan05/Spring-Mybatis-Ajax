@@ -3,7 +3,7 @@ CREATE DATABASE sampledb DEFAULT CHARACTER SET utf8;
 
 USE sampledb;
 
-CREATE TABLE t_use(
+CREATE TABLE t_user(
   user_id INT AUTO_INCREMENT PRIMARY KEY,
   user_name VARCHAR (30),
   credits INT,
@@ -19,7 +19,7 @@ CREATE TABLE t_login_log(
   login_datetime datetime
 );
 
-INSERT INTO t_use (user_name, password)
+INSERT INTO t_user (user_name, password)
   VALUES ('admin','123456');
 
 COMMIT ;
