@@ -36,7 +36,7 @@ public class TestUserService {
         boolean b1 = userService.hasMatchUser("admin","123456");
         boolean b2 = userService.hasMatchUser("admin","123");
         Assert.assertTrue(b1);
-        Assert.assertTrue(b2);
+        Assert.assertFalse(b2);
     }
 
     @Test
