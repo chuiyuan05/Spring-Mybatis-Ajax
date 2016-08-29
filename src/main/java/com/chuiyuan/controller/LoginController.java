@@ -18,8 +18,8 @@ public class LoginController {
 
     @Autowired
     private UserService userService ;
-
-    @RequestMapping(value = "/index.html")
+    //with .html or not both are ok
+    @RequestMapping(value = "/index")
     public String loginPage(){
         return "login";
     }
