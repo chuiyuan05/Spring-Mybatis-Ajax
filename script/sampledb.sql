@@ -1,6 +1,8 @@
 DROP DATABASE IF EXISTS sampledb;
 CREATE DATABASE sampledb DEFAULT CHARACTER SET utf8;
 
+USE sampledb;
+
 CREATE TABLE t_use(
   user_id INT AUTO_INCREMENT PRIMARY KEY,
   user_name VARCHAR (30),
@@ -18,6 +20,6 @@ CREATE TABLE t_login_log(
 );
 
 INSERT INTO t_use (user_name, password)
-  VALUES ('admin','123456')
+  VALUES ('admin','123456');
 
 COMMIT ;
