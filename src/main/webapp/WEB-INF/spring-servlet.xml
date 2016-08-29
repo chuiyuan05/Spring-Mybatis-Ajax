@@ -22,6 +22,6 @@
     <!--static resources-->
     <!--You can find by http://localhost:8080/web/home/view_schema.html-->
     <!--<mvc:resources mapping="/home/**" location="/"/>-->
-    <mvc:resources mapping="/**" location="/"/>
+   <!-- <mvc:resources mapping="/**" location="/"/>-->
 
 </beans>
