@@ -12,6 +12,7 @@ import java.sql.SQLException;
 /**
  * Created by chuiyuan on 16-8-29.
  */
+//annotation to define a Dao
 @Repository
 public class UserDao {
     @Autowired
@@ -20,10 +21,11 @@ public class UserDao {
     public int getMatchCount(String userName, String passwrod){
         String sqlStr = " SELECT count(*) FROM t_user "
                 + " WHERE user_name =? and password=?";
-        return 0 ;//jdbcTemplate.queryForInt(sqlStr, new Object[] {userName, passwrod});
+        return jdbcTemplate.queryForObject(sqlStr, new Object[] {userName, passwrod},
+                Integer.class);
     }
 
-    public User findUserByUserName(final String userName){
+    public User findUserByUserName( final String userName){
         String sqlStr = " SELECT user_id,user_name,credits "
                 +" FROM t_user WHERE user_name=?";
         final User user = new User();
