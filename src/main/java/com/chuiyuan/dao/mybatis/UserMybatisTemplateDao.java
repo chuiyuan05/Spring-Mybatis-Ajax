@@ -1,4 +1,4 @@
-package com.chuiyuan.dao;
+package com.chuiyuan.dao.mybatis;
 
 import com.chuiyuan.dao.mybatis.UserMybatisDao;
 import com.chuiyuan.model.User;
@@ -12,7 +12,7 @@ import java.util.Map;
  * Created by chuiyuan on 16-8-30.
  */
 @Repository
-public class UserMybatisTemplateDao implements UserMybatisDao {
+public class UserMybatisTemplateDao  {
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
