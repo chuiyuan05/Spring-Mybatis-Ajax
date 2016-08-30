@@ -28,6 +28,7 @@ public class TestUserMybatisService {
     public void hasMatchUser(){
         boolean b1 = userMybatisService.hasMatchUser("admin","123456");
         boolean b2 = userMybatisService.hasMatchUser("admin", "123");
+        System.out.println("hasMatchUser");
         Assert.assertTrue(b1);
         Assert.assertFalse(b2);
     }

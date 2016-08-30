@@ -1,5 +1,6 @@
-package com.chuiyuan.dao.mybatis;
+package com.chuiyuan.dao;
 
+import com.chuiyuan.dao.mybatis.UserMybatisDao;
 import com.chuiyuan.model.User;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.Map;
  * Created by chuiyuan on 16-8-30.
  */
 @Repository
-public class UserMybatisTemplateDao implements UserMybatisDao{
+public class UserMybatisTemplateDao implements UserMybatisDao {
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
