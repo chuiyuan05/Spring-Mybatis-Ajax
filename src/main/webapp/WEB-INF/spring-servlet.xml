@@ -20,6 +20,6 @@
         p:suffix=""/>
 
     <!--static resources-->
-    <!--<mvc:resources mapping="/**" location="/WEB-INF/static/"/>-->
+    <!--<mvc:resources mapping="/**" location="/"/>-->
 
 </beans>
