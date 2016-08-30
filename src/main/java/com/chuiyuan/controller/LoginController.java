@@ -19,12 +19,13 @@ public class LoginController {
     @Autowired
     private UserService userService ;
     //with .html or not both are ok
-    @RequestMapping(value = "/index")
+    @RequestMapping(value = "/login")
     public String loginPage(){
+        System.out.println("login");
         return "login";
     }
 
-    @RequestMapping(value = "/loginCheck.html")
+    @RequestMapping(value = "/loginCheck")
     public ModelAndView loginCheck(HttpServletRequest request,
                                    LoginCommand loginCommand){
         boolean isValidUser = userService.hasMatchUser(loginCommand.getUserName(),
@@ -40,4 +41,6 @@ public class LoginController {
             return new ModelAndView("main");
         }
     }
+
+
 }

@@ -21,20 +21,20 @@
 			<img id="psdimg" src="images/passwordactive.png" alt="" />
 		</div>
 		<div class="item">
-			<input type="button" value="登录" onclick="login()" />
+			<input type="button" value="登录" onclick="test()" />
 		</div>
 	</form>
 </div>
 </body>
 <script type="text/javascript">
-	$(document).ready(function(){
-		document.getElementById("usrinput").focus();
+    $(document).ready(function(){
+	   document.getElementById("usrinput").focus();
 	});
 	document.onkeydown = function(e) {
 		var theEvent = window.event || e;
 		var code = theEvent.keyCode || theEvent.which;
 		if (code == 13) {
-			login();
+			test();
 		}
 	};
 	function login(){
@@ -65,4 +65,3 @@
 </script>
 
 </html>
-

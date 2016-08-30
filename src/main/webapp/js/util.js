@@ -48,7 +48,7 @@ function checkLogin(){
 	if(qxian==1 || qxian==2)
 		notLogin=0;
 	if(notLogin==1)
-		window.location.href = "./login.html";
+		window.location.href = "./test.html";
 }
 
 /*设置导航处用户信息*/
@@ -74,7 +74,7 @@ function logout(){
 	date.setTime(date.getTime()-10000);
 	document.cookie="qxian=v; expire="+date.toGMTString();
 	document.cookie="name=v; expire="+date.toGMTString();
-	window.location.href="./login.html";
+	window.location.href="./test.html";
 }
 
 /*解析字符串获得参数*/
