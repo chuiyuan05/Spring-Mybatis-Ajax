@@ -19,10 +19,10 @@ public class LoginController {
     @Autowired
     private UserService userService ;
     //with .html or not both are ok
-    @RequestMapping(value = "/login")
+    @RequestMapping(value = {"/","/login"})
     public String loginPage(){
         System.out.println("login");
-        return "login";
+        return "login.jsp";
     }
 
     @RequestMapping(value = "/loginCheck")
@@ -31,14 +31,14 @@ public class LoginController {
         boolean isValidUser = userService.hasMatchUser(loginCommand.getUserName(),
                 loginCommand.getPassword());
         if (!isValidUser){
-            return new ModelAndView("login", "error","username or password error");
+            return new ModelAndView("login.jsp", "error","username or password error");
         }else {
             User user = userService.findUserByUserName(loginCommand.getUserName());
             user.setLastIp(request.getRemoteAddr());
             user.setLastVisit(new Date());
             userService.loginSuccess(user);
             request.getSession().setAttribute("user", user);
-            return new ModelAndView("main");
+            return new ModelAndView("main.jsp");
         }
     }
 
