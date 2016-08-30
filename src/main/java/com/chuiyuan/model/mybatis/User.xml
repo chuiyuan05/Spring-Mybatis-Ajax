@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chuiyuan.dao.mybatis.UserMybatisDao">
+
+    <select id="getMatchCount" resultType="int" parameterType="java.util.Map">
+        SELECT count(*)
+        FROM t_user
+        WHERE user_name=#{username}
+        AND password=#{password}
+    </select>
+
+    <select id="findUserByUserName" resultType="User" parameterType="String">
+        SELECT
+        user_id,
+        user_name,
+        credits
+        FROM t_user
+        WHERE user_name=#{username}
+    </select>
+
+    <select id="updateLoginInfo" parameterType="User">
+        UPDATE t_user
+        SET last_visit=#{last_visit},
+        last_ip=#{last_ip},
+        credits=#{credits}
+        WHERE user_id=#{userid}
+    </select>
+
+</mapper>
