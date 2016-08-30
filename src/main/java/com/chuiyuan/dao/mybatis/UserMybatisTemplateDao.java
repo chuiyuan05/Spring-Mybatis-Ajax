@@ -5,6 +5,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Map;
+
 /**
  * Created by chuiyuan on 16-8-30.
  */
@@ -14,10 +16,10 @@ public class UserMybatisTemplateDao implements UserMybatisDao{
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
-    public int getMatchCount(String userName, String passwrod) {
+    public int getMatchCount(Map params) {
         UserMybatisDao userMybatisDao =
                 sqlSessionTemplate.getMapper(UserMybatisDao.class);
-        return userMybatisDao.getMatchCount(userName, passwrod);
+        return userMybatisDao.getMatchCount(params);
     }
 
     public User findUserByUserName(String userName) {

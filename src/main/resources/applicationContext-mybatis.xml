@@ -13,6 +13,7 @@
 
     <context:component-scan base-package="com.chuiyuan.dao.mybatis"/>
     <context:component-scan base-package="com.chuiyuan.service.mybatis"/>
+
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <bean id="dataSource"
@@ -36,5 +37,12 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
           p:sqlSessionFactory-ref="sqlSessionFactory"
           p:basePackage="com.chuiyuan.dao.mybatis"/>
+
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+          p:dataSource-ref="dataSource"/>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
 
 </beans>
