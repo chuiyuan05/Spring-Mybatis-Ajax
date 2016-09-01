@@ -10,6 +10,11 @@ import java.util.Map;
  * Add Repository or not is both ok.
  */
 public interface UserMybatisDao {
+    /**
+     * If >0, login success.
+     * @param params
+     * @return
+     */
     public int getMatchCount(Map params);
 
     public User findUserByUserName(final String userName);

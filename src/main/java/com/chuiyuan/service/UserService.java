@@ -1,6 +1,6 @@
 package com.chuiyuan.service;
 
-import com.chuiyuan.dao.mybatis.UserMybatisDao;
+import com.chuiyuan.dao.UserMybatisTemplateDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import java.util.Map;
 @Service
 public class UserService {
     @Autowired
-    private UserMybatisDao userDao ;
+    private UserMybatisTemplateDao userDao ;
 
     public boolean hasMatchUser(String username, String password){
         Map params = new HashMap();

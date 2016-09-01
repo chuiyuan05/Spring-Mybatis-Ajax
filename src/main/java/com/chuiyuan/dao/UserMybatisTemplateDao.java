@@ -19,22 +19,22 @@ public class UserMybatisTemplateDao  {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
+    private UserMybatisDao getDao(){
+        return sqlSessionTemplate.getMapper(UserMybatisDao.class);
+    }
+
     public int getMatchCount(Map params) {
-        UserMybatisDao userMybatisDao =
-                sqlSessionTemplate.getMapper(UserMybatisDao.class);
-        return userMybatisDao.getMatchCount(params);
+        return getDao().getMatchCount(params);
     }
 
     public User findUserByUserName(String userName) {
-        UserMybatisDao userMybatisDao =
-                sqlSessionTemplate.getMapper(UserMybatisDao.class);
-        return  userMybatisDao.findUserByUserName(userName);
+        User user = new User();
+
+        return  getDao().findUserByUserName(userName);
     }
 
     public void updateLoginInfo(User user) {
-        UserMybatisDao userMybatisDao =
-                sqlSessionTemplate.getMapper(UserMybatisDao.class);
-        userMybatisDao.updateLoginInfo(user);
+        getDao().updateLoginInfo(user);
     }
 
 }
