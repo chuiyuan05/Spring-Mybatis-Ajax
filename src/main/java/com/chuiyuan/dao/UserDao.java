@@ -1,6 +1,6 @@
 package com.chuiyuan.dao;
 
-import com.chuiyuan.model.User;
+import com.chuiyuan.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;

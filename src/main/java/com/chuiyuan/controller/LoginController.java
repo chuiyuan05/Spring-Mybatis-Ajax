@@ -1,6 +1,6 @@
 package com.chuiyuan.controller;
 
-import com.chuiyuan.model.User;
+import com.chuiyuan.domain.User;
 import com.chuiyuan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -8,11 +8,11 @@
     </settings>
 
     <typeAliases>
-        <typeAlias alias="User" type="com.chuiyuan.model.User"/>
+        <typeAlias alias="User" type="com.chuiyuan.domain.User"/>
     </typeAliases>
 
     <!--<mappers>
-        <mapper resource="com.chuiyuan.model.mybatis.User.xml" />
+        <mapper resource="com.chuiyuan.domainn.mybatis.User.xml" />
     </mappers>-->
 
 </configuration>

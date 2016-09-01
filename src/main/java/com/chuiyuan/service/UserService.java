@@ -2,8 +2,8 @@ package com.chuiyuan.service;
 
 import com.chuiyuan.dao.LoginLogDao;
 import com.chuiyuan.dao.UserDao;
-import com.chuiyuan.model.LoginLog;
-import com.chuiyuan.model.User;
+import com.chuiyuan.domain.LoginLog;
+import com.chuiyuan.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

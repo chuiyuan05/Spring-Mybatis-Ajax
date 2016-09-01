@@ -1,7 +1,7 @@
 package com.chuiyuan.service;
 
 
-import com.chuiyuan.model.User;
+import com.chuiyuan.domain.User;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;

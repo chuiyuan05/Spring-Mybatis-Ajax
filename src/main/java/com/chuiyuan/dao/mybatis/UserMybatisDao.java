@@ -1,6 +1,6 @@
 package com.chuiyuan.dao.mybatis;
 
-import com.chuiyuan.model.User;
+import com.chuiyuan.domain.User;
 
 import java.util.Map;
 

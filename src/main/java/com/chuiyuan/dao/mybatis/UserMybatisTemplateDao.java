@@ -1,7 +1,6 @@
 package com.chuiyuan.dao.mybatis;
 
-import com.chuiyuan.dao.mybatis.UserMybatisDao;
-import com.chuiyuan.model.User;
+import com.chuiyuan.domain.User;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
