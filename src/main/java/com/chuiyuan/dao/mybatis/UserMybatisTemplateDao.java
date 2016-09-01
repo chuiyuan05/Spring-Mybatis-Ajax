@@ -33,4 +33,5 @@ public class UserMybatisTemplateDao  {
                 sqlSessionTemplate.getMapper(UserMybatisDao.class);
         userMybatisDao.updateLoginInfo(user);
     }
+
 }
