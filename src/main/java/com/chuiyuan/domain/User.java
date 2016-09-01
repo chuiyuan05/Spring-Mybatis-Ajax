@@ -61,4 +61,8 @@ public class User implements Serializable{
     public void setLastVisit(Date lastVisit) {
         this.lastVisit = lastVisit;
     }
+
+    public String toString(){
+        return userId+":"+userName+":"+password+":"+lastIp;
+    }
 }

@@ -3,6 +3,7 @@ package com.chuiyuan.dao.mybatis;
 import com.chuiyuan.domain.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -17,7 +18,9 @@ public interface UserMybatisDao {
      */
     public int getMatchCount(Map params);
 
-    public User findUserByUserName(final String userName);
+    public List<User> findUserByUserName(String username);
 
     public void updateLoginInfo(User user) ;
+
+    public User findUserById(int userId) ;
 }

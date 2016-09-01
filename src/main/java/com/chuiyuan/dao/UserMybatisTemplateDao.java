@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,7 +15,7 @@ import java.util.Map;
  * you must use this in Service.
  */
 @Repository
-public class UserMybatisTemplateDao  {
+public class UserMybatisTemplateDao implements UserMybatisDao{
 
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
@@ -27,14 +28,15 @@ public class UserMybatisTemplateDao  {
         return getDao().getMatchCount(params);
     }
 
-    public User findUserByUserName(String userName) {
-        User user = new User();
-
-        return  getDao().findUserByUserName(userName);
+    public List<User> findUserByUserName(String username) {
+        return getDao().findUserByUserName(username);
     }
 
     public void updateLoginInfo(User user) {
         getDao().updateLoginInfo(user);
     }
 
+    public User findUserById(int userId) {
+        return getDao().findUserById(userId);
+    }
 }

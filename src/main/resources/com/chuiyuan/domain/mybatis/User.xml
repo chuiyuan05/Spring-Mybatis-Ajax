@@ -10,11 +10,8 @@
         AND password=#{password}
     </select>
 
-    <select id="findUerByUserName" resultType="String" parameterType="String">
-        SELECT
-        user_id,
-        user_name,
-        credits
+    <select id="findUserByUserName" resultType="User" parameterType="String">
+        SELECT *
         FROM t_user
         WHERE user_name=#{username}
     </select>
@@ -26,5 +23,9 @@
         credits=#{credits}
         WHERE user_id=#{userid}
     </update>
+
+    <select id="findUserById" parameterType="int" resultType="User">
+        SELECT * FROM t_user WHERE user_id=#{userId}
+    </select>
 
 </mapper>

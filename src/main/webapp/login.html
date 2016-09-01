@@ -38,8 +38,8 @@
 		}
 	};
 	function login(){
-		var username = $$("usrinput").value;
-		var password = $$("psdinput").value;
+		var username = "admin"; //$$("usrinput").value;
+		var password = "123456"; //$$("psdinput").value;
 		param = username + ";" + password;
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange=function(){
@@ -59,7 +59,7 @@
 				}
 			}
 		};
-		xmlhttp.open("POST","user!login",true);
+		xmlhttp.open("POST","http://localhost:8080/login.htm",true);
 		xmlhttp.send(param);
 	}
 </script>
