@@ -1,6 +1,5 @@
 package com.chuiyuan.service;
 
-import com.chuiyuan.service.mybatis.UserMybatisService;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -17,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @ContextConfiguration(locations = {"classpath:applicationContext-mybatis.xml"})
 public class TestUserMybatisService {
     @Autowired
-    UserMybatisService userMybatisService ;
+    UserService userMybatisService ;
 
     @BeforeClass
     public static void init(){

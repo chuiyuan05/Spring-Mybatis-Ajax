@@ -1,5 +1,6 @@
-package com.chuiyuan.dao.mybatis;
+package com.chuiyuan.dao;
 
+import com.chuiyuan.dao.mybatis.UserMybatisDao;
 import com.chuiyuan.domain.User;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import java.util.Map;
 
 /**
  * Created by chuiyuan on 16-8-30.
+ * If you remove MapperScannerConfigurer in applicationContext-mybatis,
+ * you must use this in Service.
  */
 @Repository
 public class UserMybatisTemplateDao  {

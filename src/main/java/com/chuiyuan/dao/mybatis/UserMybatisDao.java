@@ -7,8 +7,8 @@ import java.util.Map;
 
 /**
  * Created by chuiyuan on 16-8-30.
+ * Add Repository or not is both ok.
  */
-@Repository
 public interface UserMybatisDao {
     public int getMatchCount(Map params);
 

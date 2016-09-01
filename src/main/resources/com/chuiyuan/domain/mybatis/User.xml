@@ -10,7 +10,7 @@
         AND password=#{password}
     </select>
 
-    <select id="findUserByUserName" resultType="String" parameterType="String">
+    <select id="findUerByUserName" resultType="String" parameterType="String">
         SELECT
         user_id,
         user_name,
