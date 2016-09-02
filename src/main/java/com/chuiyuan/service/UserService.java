@@ -21,17 +21,18 @@ public class UserService {
         Map params = new HashMap();
         params.put("username", username);
         params.put("password", password);
-        int matchCount = userDao.getMatchCount(params);
-        System.out.println("match"+matchCount);
-        return matchCount > 0;
+        int match = userDao.getMatchCount(params) ;
+        System.out.println(match);
+        return match>0;
     }
 
     public User findUserById(int userId){
         return userDao.findUserById(userId);
     }
 
-    public List<User> findUserByUserName(String username){
-        return userDao.findUserByUserName(username);
+    public List<User> findUserByName(String username){
+        //return userDao.findUserByName(username);
+        return null ;
     }
 
 }

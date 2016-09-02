@@ -10,7 +10,7 @@
         AND password=#{password}
     </select>
 
-    <select id="findUserByUserName" resultType="User" parameterType="String">
+    <select id="findUserByName" resultType="User" parameterType="String">
         SELECT *
         FROM t_user
         WHERE user_name=#{username}
@@ -27,5 +27,13 @@
     <select id="findUserById" parameterType="int" resultType="User">
         SELECT * FROM t_user WHERE user_id=#{userId}
     </select>
+
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM t_user WHERE user_id=#{userId}
+    </delete>
+
+    <insert id="insertUser" parameterType="User">
+
+    </insert>
 
 </mapper>

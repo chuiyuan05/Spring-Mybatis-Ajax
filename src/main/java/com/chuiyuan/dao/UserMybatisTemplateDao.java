@@ -2,6 +2,8 @@ package com.chuiyuan.dao;
 
 import com.chuiyuan.dao.mybatis.UserMybatisDao;
 import com.chuiyuan.domain.User;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -20,6 +22,9 @@ public class UserMybatisTemplateDao implements UserMybatisDao{
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;
 
+    /*@Autowired
+    SqlSessionFactory sqlSessionFactory;*/
+
     private UserMybatisDao getDao(){
         return sqlSessionTemplate.getMapper(UserMybatisDao.class);
     }
@@ -28,8 +33,8 @@ public class UserMybatisTemplateDao implements UserMybatisDao{
         return getDao().getMatchCount(params);
     }
 
-    public List<User> findUserByUserName(String username) {
-        return getDao().findUserByUserName(username);
+    public int findUserByName(String username) {
+        return getDao().findUserByName(username);
     }
 
     public void updateLoginInfo(User user) {
@@ -37,6 +42,18 @@ public class UserMybatisTemplateDao implements UserMybatisDao{
     }
 
     public User findUserById(int userId) {
-        return getDao().findUserById(userId);
+       /* SqlSession sqlSession = sqlSessionFactory.openSession();
+        UserMybatisDao dao = sqlSession.getMapper(UserMybatisDao.class);*/
+       System.out.println("findUserById");
+       return (User)sqlSessionTemplate.selectOne(
+               "com.chuiyuan.dao.mybatis.UserMybatisDao.findUserById", userId);
+    }
+
+    public void insertUser(User user) {
+        getDao().insertUser(user);
+    }
+
+    public void deleteUser(int userId) {
+        getDao().deleteUser(userId);
     }
 }

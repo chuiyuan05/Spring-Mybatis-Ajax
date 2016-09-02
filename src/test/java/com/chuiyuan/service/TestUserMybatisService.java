@@ -35,10 +35,9 @@ public class TestUserMybatisService {
     @Test
     public void hasMatchUser(){
         boolean b1 = userService.hasMatchUser("admin","123456");
-        boolean b2 = userService.hasMatchUser("admin", "123");
-        System.out.println("hasMatchUser");
+        //boolean b2 = userService.hasMatchUser("admin", "123");
         Assert.assertTrue(b1);
-        Assert.assertFalse(b2);
+        //Assert.assertFalse(b2);
     }
 
     @Test
@@ -48,9 +47,11 @@ public class TestUserMybatisService {
     }
 
     @Test
-    public void testFindUserByUserName(){
-        List<User> users = userService.findUserByUserName("admin");
-        System.out.println(users.get(0).toString());
+    public void testFindUserByName(){
+        /*List<User> users = userService.findUserByName("admin");
+        System.out.println(users.get(0).toString());*/
+        int num = userDao.findUserByName("admin");
+        System.out.println(num);
     }
 
 

@@ -18,9 +18,13 @@ public interface UserMybatisDao {
      */
     public int getMatchCount(Map params);
 
-    public List<User> findUserByUserName(String username);
+    public int findUserByName(String username);
 
     public void updateLoginInfo(User user) ;
 
     public User findUserById(int userId) ;
+
+    public void insertUser(User user);
+
+    public void deleteUser(int userId);
 }
