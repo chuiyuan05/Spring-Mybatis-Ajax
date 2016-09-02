@@ -19,7 +19,5 @@
         p:prefix="/WEB-INF/jsp/"
         p:suffix=""/>
 
-    <!--static resources-->
-    <!--<mvc:resources mapping="/**" location="/"/>-->
 
 </beans>
