@@ -10,9 +10,18 @@ public class User implements Serializable{
     //属性名要和数据库表的字段对应
     private int id;
     private String username;// 用户姓名
+    private String password;
     private String sex;// 性别
     private Date birthday;// 生日
     private String address;// 地址
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public int getId() {
         return id;
@@ -56,7 +65,8 @@ public class User implements Serializable{
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", username=" + username + ", sex=" + sex
+        return "User [id=" + id + ", username=" + username +
+                ", password="+password+", sex=" + sex
                 + ", birthday=" + birthday + ", address=" + address + "]";
     }
 }

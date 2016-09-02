@@ -27,9 +27,10 @@ public class TestMybatis {
 
     @Test
     public void testFindUserById(){
-        User user = userMapper.findUserById(12);
+        User user = userMapper.findUserById(2);
         System.out.println(user);
     }
+
 
 
     @AfterClass

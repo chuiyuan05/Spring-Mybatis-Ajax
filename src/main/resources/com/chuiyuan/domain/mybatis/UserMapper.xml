@@ -19,8 +19,8 @@
         <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT  INTO t_user (username, birthday, sex, address)
-        VALUE (#{username},#{birthday},#{sex},#{address})
+        INSERT  INTO t_user (username, birthday, sex, address, password)
+        VALUE (#{username},#{birthday},#{sex},#{address}, #{password})
     </insert>
 
     <delete id="deleteUser" parameterType="java.lang.Integer">
@@ -30,6 +30,7 @@
     <update id="updateUser" parameterType="com.chuiyuan.domain.User">
         UPDATE t_user SET
         username=#{username}, birthday=#{birthday}, sex=#{sex},address=#{address}
+        ,password=#{password}
         WHERE id=#{id}
     </update>
 

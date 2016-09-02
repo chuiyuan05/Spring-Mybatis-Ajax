@@ -25,15 +25,11 @@ public class LoginController {
     }
 
 
-   /* @RequestMapping(value = "/login", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
     public @ResponseBody String login(HttpServletRequest request, HttpServletResponse response){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        if(userService.hasMatchUser(username, password)){
-            System.out.println("match");
-            return 1+"::"+username;
-        }
         return "0::error";
-    }*/
+    }
 
 }
