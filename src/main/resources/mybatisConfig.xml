@@ -11,8 +11,8 @@
         <typeAlias alias="User" type="com.chuiyuan.domain.User"/>
     </typeAliases>
 
-    <!--<mappers>
-        <mapper resource="com.chuiyuan.domainn.mybatis.User.xml" />
+   <!-- <mappers>
+        <mapper resource="classpath:com.chuiyuan.domain.mybatis.UserMap.xml" />
     </mappers>-->
 
 </configuration>

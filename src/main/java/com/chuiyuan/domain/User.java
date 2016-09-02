@@ -7,62 +7,56 @@ import java.util.Date;
  * Created by chuiyuan on 16-8-29.
  */
 public class User implements Serializable{
-    private int userId ;
-    private String userName ;
-    private String password ;
-    private int credits ;
-    private String lastIp;
-    private Date lastVisit;
+    //属性名要和数据库表的字段对应
+    private int id;
+    private String username;// 用户姓名
+    private String sex;// 性别
+    private Date birthday;// 生日
+    private String address;// 地址
 
-    public int getUserId() {
-        return userId;
+    public int getId() {
+        return id;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getSex() {
+        return sex;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 
-    public int getCredits() {
-        return credits;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setCredits(int credits) {
-        this.credits = credits;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
-    public String getLastIp() {
-        return lastIp;
+    public String getAddress() {
+        return address;
     }
 
-    public void setLastIp(String lastIp) {
-        this.lastIp = lastIp;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Date getLastVisit() {
-        return lastVisit;
-    }
-
-    public void setLastVisit(Date lastVisit) {
-        this.lastVisit = lastVisit;
-    }
-
-    public String toString(){
-        return userId+":"+userName+":"+password+":"+lastIp;
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", username=" + username + ", sex=" + sex
+                + ", birthday=" + birthday + ", address=" + address + "]";
     }
 }

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace 命名空间，作用就是对sql进行分类化管理,理解为sql隔离
+ 注意：使用mapper代理方法开发，namespace有特殊重要的作用
+ -->
+<mapper namespace="com.chuiyuan.dao.mybatis.UserMapper">
+
+    <select id="findUserById" parameterType="int" resultType="com.chuiyuan.domain.User">
+        SELECT * FROM t_user where id=#{value}
+    </select>
+
+    <select id="findUserByName" parameterType="String" resultType="com.chuiyuan.domain.User">
+        SELECT * FROM t_user WHERE username LIKE '%${value}%'
+    </select>
+
+    <insert id="insertUser" parameterType="com.chuiyuan.domain.User">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT  INTO t_user (username, birthday, sex, address)
+        VALUE (#{username},#{birthday},#{sex},#{address})
+    </insert>
+
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        DELETE FROM t_user WHERE id=#{id}
+    </delete>
+
+    <update id="updateUser" parameterType="com.chuiyuan.domain.User">
+        UPDATE t_user SET
+        username=#{username}, birthday=#{birthday}, sex=#{sex},address=#{address}
+        WHERE id=#{id}
+    </update>
+
+    <select id="getLastId" resultType="java.lang.Integer">
+        SELECT id from t_user ORDER BY id DESC LIMIT 1
+    </select>
+</mapper>
+
+
+

@@ -25,7 +25,7 @@ public class LoginController {
     }
 
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
+   /* @RequestMapping(value = "/login", method = RequestMethod.POST)
     public @ResponseBody String login(HttpServletRequest request, HttpServletResponse response){
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -34,6 +34,6 @@ public class LoginController {
             return 1+"::"+username;
         }
         return "0::error";
-    }
+    }*/
 
 }

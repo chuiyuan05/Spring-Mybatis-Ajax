@@ -1,20 +1,14 @@
 package com.chuiyuan.service;
 
-import com.chuiyuan.dao.UserMybatisTemplateDao;
-import com.chuiyuan.domain.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by chuiyuan on 16-8-30.
  */
 @Service
 public class UserService {
-    @Autowired
+    /*@Autowired
     private UserMybatisTemplateDao userDao ;
 
     public boolean hasMatchUser(String username, String password){
@@ -34,5 +28,5 @@ public class UserService {
         //return userDao.findUserByName(username);
         return null ;
     }
-
+*/
 }
