@@ -21,7 +21,7 @@
 			<img id="psdimg" src="images/passwordactive.png" alt="" />
 		</div>
 		<div class="item">
-			<input type="button" value="登录" onclick="test()" />
+			<input type="button" value="登录" onclick="login()" />
 		</div>
 	</form>
 </div>
@@ -34,12 +34,12 @@
 		var theEvent = window.event || e;
 		var code = theEvent.keyCode || theEvent.which;
 		if (code == 13) {
-			test();
+			login();
 		}
 	};
 	function login(){
-		var username = "admin"; //$$("usrinput").value;
-		var password = "123456"; //$$("psdinput").value;
+		var username = $$("usrinput").value;
+		var password = $$("psdinput").value;
 		param = username + ";" + password;
 		var xmlhttp = new XMLHttpRequest();
 		xmlhttp.onreadystatechange=function(){
@@ -59,7 +59,7 @@
 				}
 			}
 		};
-		xmlhttp.open("POST","http://localhost:8080/login.htm",true);
+		xmlhttp.open("GET","http://localhost:8080/login.htm",true);
 		xmlhttp.send(param);
 	}
 </script>
