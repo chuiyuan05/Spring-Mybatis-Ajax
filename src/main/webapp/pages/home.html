@@ -35,9 +35,9 @@
             <div class="inner">
               <h3 class="masthead-brand">山居秋暝</h3>
               <ul class="nav masthead-nav">
-                <li class="active"><a href="#">古诗词</a></li>
-                <li><a href="#">技术</a></li>
-                <li><a href="#">其他</a></li>
+                <li id='poem' ><a href="#">古诗词</a></li>
+                <li id="technology"><a href="#">技术</a></li>
+                <li id="others"><a href="#">其他</a></li>
               </ul>
             </div>
           </div>
@@ -50,15 +50,9 @@
                     竹喧归浣女，莲动下渔舟。<br/>
                     随意春芳歇，王孙自可留。</p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-default">查看更多</a>
+              <a id="morepoem" class="btn btn-lg btn-default">查看更多</a>
             </p>
           </div>
-
-          <!--<div class="mastfoot">
-            <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-            </div>
-          </div>-->
 
         </div>
 
@@ -72,6 +66,26 @@
     <script src="cover_template/jquery.js"></script>
     <script src="cover_template/bootstrap.js"></script>
     <script src="cover_template/docs.js"></script>
+  <script>
+      function nav_poem() {
+          //document.getElementById('poem').className += 'active';
+          window.location.href = 'login.html';
+      }
+      function nav_technology() {
+          window.location.href = 'login.html';
+      }
+      function nav_others() {
+          window.location.href = 'login.html';
+      }
+      function onMorePoemClick() {
+          window.location.href = 'login.html';
+      }
+      document.getElementById("morepoem").addEventListener("click",onMorePoemClick);
+      document.getElementById("poem").addEventListener("click", nav_poem);
+      document.getElementById("technology").addEventListener('click', nav_technology);
+      document.getElementById("others").addEventListener('click', nav_others);
+
+  </script>
 
  </body>
 </html>

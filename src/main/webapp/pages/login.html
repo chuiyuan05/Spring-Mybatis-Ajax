@@ -33,12 +33,18 @@
         <input class="form-control" placeholder="Password" required="" type="password">
         <div class="checkbox">
           <label>
-            <input value="remember-me" type="checkbox"> Remember me
+            <input value="remember-me" type="checkbox">记住我
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <button id='login' class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
       </form>
 
     </div> <!-- /container -->
+  <script>
+      function login() {
+          window.location.href = 'home.html';
+      }
+      document.getElementById('login').addEventListener('click', login);
+  </script>
 
 </body></html>
