@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 
 /**
@@ -24,9 +25,14 @@ public class LoginController {
     @Autowired
     UserService userService ;
 
-    @RequestMapping(value = {"/","/test"})
-    public String test(){
-        return "test.jsp";
+    @RequestMapping(value = {"/","/home"})
+    public void home(HttpServletResponse response){
+        try {
+            logger.info("send redirect");
+            response.sendRedirect("http://localhost:8080/pages/home.html");
+        }catch (IOException e){
+            logger.info("exception");
+        }
     }
 
 
