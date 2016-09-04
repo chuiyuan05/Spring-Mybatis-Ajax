@@ -9,18 +9,13 @@
     <link rel="icon" href="http://v3.bootcss.com/favicon.ico">
 
     <title>山居秋暝</title>
-
+    <!--css put in head-->
     <!-- Bootstrap core CSS -->
     <link href="home_template/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="home_template/cover.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.j\s for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
 
   <body>
@@ -33,11 +28,11 @@
 
           <div class="masthead clearfix">
             <div class="inner">
-              <h3 class="masthead-brand">山居秋暝</h3>
+              <h3 id = 'home_nav' class="masthead-brand">山居秋暝</h3>
               <ul class="nav masthead-nav">
-                <li id='poem' ><a href="#">古诗词</a></li>
-                <li id="technology"><a href="#">技术</a></li>
-                <li id="others"><a href="#">其他</a></li>
+                <li id='poem_nav' ><a href="#">古诗词</a></li>
+                <li id="blog_nav"><a href="#">技术</a></li>
+                <li id="others_nav"><a href="#">其他</a></li>
               </ul>
             </div>
           </div>
@@ -49,9 +44,9 @@
                     明月松间照，清泉石上流。<br/>
                     竹喧归浣女，莲动下渔舟。<br/>
                     随意春芳歇，王孙自可留。</p>
-            <p class="lead">
+            <!--<p class="lead">
               <a id="morepoem" class="btn btn-lg btn-default">查看更多</a>
-            </p>
+            </p>-->
           </div>
 
         </div>
@@ -66,26 +61,8 @@
     <script src="home_template/jquery.js"></script>
     <script src="home_template/bootstrap.js"></script>
     <script src="home_template/docs.js"></script>
-  <script>
-      function nav_poem() {
-          //document.getElementById('poem').className += 'active';
-          window.location.href = 'login.html';
-      }
-      function nav_technology() {
-          window.location.href = 'blogs.html';
-      }
-      function nav_others() {
-          window.location.href = 'login.html';
-      }
-      function onMorePoemClick() {
-          window.location.href = 'login.html';
-      }
-      document.getElementById("morepoem").addEventListener("click",onMorePoemClick);
-      document.getElementById("poem").addEventListener("click", nav_poem);
-      document.getElementById("technology").addEventListener('click', nav_technology);
-      document.getElementById("others").addEventListener('click', nav_others);
-
-  </script>
-
+    <!--self code -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/nav.js"></script>
  </body>
 </html>
