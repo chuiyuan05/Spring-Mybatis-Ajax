@@ -13,7 +13,7 @@ function prepare_nav() {
         window.location.href = 'blogs_list.html';
     };
     others_nav.onclick = function () {
-        window.location.href = 'about.html';
+        window.location.href = 'others.html';
     };
     home_nav.onclick = function () {
         window.location.href = 'home.html';
