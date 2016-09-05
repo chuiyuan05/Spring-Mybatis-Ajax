@@ -25,7 +25,7 @@ public class LoginController {
     @Autowired
     UserService userService ;
 
-    @RequestMapping(value = {"/","/home"})
+    @RequestMapping(value = {"/home","/"})
     public void home(HttpServletResponse response){
         try {
             logger.info("send redirect");
