@@ -38,7 +38,7 @@ public class SignController {
     public String signout(HttpSession session){
         logger.info("-->SignController:signout");
         session.invalidate();
-        return "redirect:/sign.html";
+        return "redirect:/login.html";
     }
 
    /* @RequestMapping(value = {"/home","/"})

@@ -3,36 +3,25 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <script src="/js/jquery.js">
-    </script>
-    <script>
-        $(document).ready(function(){
-            $("button").click(function(){
-                var user = {username:'lisj', passwd:'1234'};
-                $.ajax({
-                    url:'/rest/login',
-                    type:'POST',
-                    dataType:'json',
-                    contentType: "application/json; charset=utf-8",
-                    timeout:1000,
-                    data:JSON.stringify(user),
-                    mimeType:'application/json',
-                    success: function (data) {
-                        alert('success:'+data);
-                    },
-                    error:function (data, status, er) {
-                        alert('error:'+data);
-                    }
-
-                });
-            });
-
-        });
-    </script>
 </head>
 <body>
+<div class="container">
 
-<button>向页面发送 HTTP POST 请求，并获得返回的结果</button>
+
+        <input id="username" required="" autofocus="" >
+        <input id="passwd" required="" type="password">
+        <div class="checkbox">
+            <label>
+                <input value="remember-me" type="checkbox">记住我
+            </label>
+        </div>
+        <!--<button id='login'>登录</button>-->
+    <button>登录</button>
+
+
+</div> <!-- /container -->
+<script src="/js/jquery.js"></script>
+<script src="/js/login.js"></script>
 
 </body>
 </html>
