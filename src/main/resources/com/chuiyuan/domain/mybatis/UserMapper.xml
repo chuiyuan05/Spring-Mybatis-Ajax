@@ -8,34 +8,33 @@
 <mapper namespace="com.chuiyuan.dao.mybatis.UserMapper">
 
     <select id="findUserById" parameterType="int" resultType="com.chuiyuan.domain.User">
-        SELECT * FROM t_user where id=#{value}
+        SELECT * FROM user where uid=#{uid}
     </select>
 
     <select id="findUserByName" parameterType="String" resultType="com.chuiyuan.domain.User">
-        SELECT * FROM t_user WHERE username LIKE '%${value}%'
+        SELECT * FROM user WHERE username LIKE '%${value}%'
     </select>
 
     <insert id="insertUser" parameterType="com.chuiyuan.domain.User">
-        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+        <selectKey keyProperty="uid" order="AFTER" resultType="java.lang.Integer">
             SELECT LAST_INSERT_ID()
         </selectKey>
-        INSERT  INTO t_user (username, birthday, sex, address, password)
-        VALUE (#{username},#{birthday},#{sex},#{address}, #{password})
+        INSERT  INTO user (username, passwd, dep, role)
+        VALUE (#{username},#{passwd},#{dep},#{role})
     </insert>
 
     <delete id="deleteUser" parameterType="java.lang.Integer">
-        DELETE FROM t_user WHERE id=#{id}
+        DELETE FROM user WHERE uid=#{uid}
     </delete>
 
     <update id="updateUser" parameterType="com.chuiyuan.domain.User">
-        UPDATE t_user SET
-        username=#{username}, birthday=#{birthday}, sex=#{sex},address=#{address}
-        ,password=#{password}
-        WHERE id=#{id}
+        UPDATE user SET
+        username=#{username}, passwd=#{passwd}, dep=#{dep}, role=#{role}
+        WHERE uid=#{uid}
     </update>
 
     <select id="getLastId" resultType="java.lang.Integer">
-        SELECT id from t_user ORDER BY id DESC LIMIT 1
+        SELECT uid from user ORDER BY uid DESC LIMIT 1
     </select>
 </mapper>
 
