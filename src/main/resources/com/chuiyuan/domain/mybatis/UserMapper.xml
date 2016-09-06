@@ -11,6 +11,10 @@
         SELECT * FROM user where uid=#{uid}
     </select>
 
+    <select id="findUserByNameAndPasswd" parameterType="java.util.Map" resultType="com.chuiyuan.domain.User">
+        SELECT * FROM user where username=#{username} AND passwd=#{passwd}
+    </select>
+
     <select id="findUserByName" parameterType="String" resultType="com.chuiyuan.domain.User">
         SELECT * FROM user WHERE username LIKE '%${value}%'
     </select>

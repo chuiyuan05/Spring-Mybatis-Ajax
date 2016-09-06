@@ -11,7 +11,7 @@ public class User implements Serializable{
     private String username ;
     private String passwd ;
     private String dep ;
-    private String role;
+    private int role;
 
     public int getUid() {
         return uid;
@@ -45,11 +45,11 @@ public class User implements Serializable{
         this.dep = dep;
     }
 
-    public String getRole() {
+    public int getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(int role) {
         this.role = role;
     }
 
