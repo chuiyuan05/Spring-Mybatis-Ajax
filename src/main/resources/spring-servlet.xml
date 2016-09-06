@@ -18,12 +18,12 @@
         p:prefix="/WEB-INF/jsp/"
         p:suffix=""/>-->
 
-    <mvc:interceptors>
+   <!-- <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <bean class="com.chuiyuan.interceptor.SignInterceptor"/>
         </mvc:interceptor>
-    </mvc:interceptors>
+    </mvc:interceptors>-->
 
     <!--<mvc:resources mapping="/js/**" location="/js/" />-->
 

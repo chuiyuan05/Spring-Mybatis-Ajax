@@ -1,4 +1,4 @@
-package com.chuiyuan.param;
+package com.chuiyuan.bean;
 
 /**
  * Created by chuiyuan on 16-9-6.
