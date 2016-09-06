@@ -20,14 +20,22 @@ public class LoginController {
     @Autowired
     private UserService userService ;
 
+    @RequestMapping(value = {"/user"}, method = RequestMethod.GET)
+    public @ResponseBody User get(){
+        User user = new User();
+        user.setUsername("cc");
+        user.setPasswd("dd");
+        return user;
+    }
+
     @RequestMapping(value = {"/login"}, method = RequestMethod.POST)
     public @ResponseBody Response login(@RequestBody User user){
         String username =user.getUsername();
         String passwd = user.getPasswd();
 
         logger.info("==>"+username+":"+passwd);
-        boolean isLogin = userService.login(username, passwd);
-
+        //boolean isLogin = userService.login(username, passwd);
+        boolean isLogin = true ;
         if(isLogin){
             String token = MD5.convert(username); //for test
             UserToken userToken = new UserToken() ;

@@ -13,9 +13,9 @@
                     url:'/rest/login',
                     type:'POST',
                     dataType:'json',
+                    contentType: "application/json; charset=utf-8",
                     timeout:1000,
                     data:JSON.stringify(user),
-                    contentType:'application/json',
                     mimeType:'application/json',
                     success: function (data) {
                         alert('success:'+data);
