@@ -25,13 +25,13 @@ public class SignController {
     @Autowired
     UserService userService ;
 
-    @RequestMapping(value = {"/sign","/"})
+    @RequestMapping(value = {"/sign","/"}, method = RequestMethod.POST)
     public String sign(HttpSession session, String username, String password){
         logger.info("-->SignController:sign");
         //调用service调用身份验证
         //store user info in session
         session.setAttribute("username", username);
-        return "redirect:/sign.html";
+        return "redirect:/home.html";
     }
 
     @RequestMapping(value = "/signout")

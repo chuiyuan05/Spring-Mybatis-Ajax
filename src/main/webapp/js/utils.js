@@ -1,6 +1,9 @@
 /**
  * Created by chuiyuan on 16-9-3.
  */
+function $$(id){
+    return document.getElementById(id);
+}
 
 function addLoadEvent(func){
     var oldonload = window.onload;

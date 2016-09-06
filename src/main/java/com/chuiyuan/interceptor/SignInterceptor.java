@@ -22,7 +22,7 @@ public class SignInterceptor implements HandlerInterceptor {
         String url = request.getRequestURI();
         //判断url是否是公开地址(实际使用时将公开地址配置在文件中)
         //这里公开地址是登录提交的地址
-        if (url.endsWith("sign.html")){
+        if (url.endsWith("sign.htm")){
             //如果进行登录提交,放行
             return true ;
         }
@@ -34,7 +34,7 @@ public class SignInterceptor implements HandlerInterceptor {
             return true ;
         }
         //执行这里表示用户身份需要验证，跳转到登录页面
-        request.getRequestDispatcher("/sign.html").forward(request, response);
+        request.getRequestDispatcher("/sign.htm").forward(request, response);
         return false;
     }
 
