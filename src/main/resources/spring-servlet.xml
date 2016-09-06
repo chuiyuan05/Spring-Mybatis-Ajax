@@ -26,5 +26,5 @@
     </mvc:interceptors>-->
 
     <!--<mvc:resources mapping="/js/**" location="/js/" />-->
-
+    <mvc:annotation-driven />
 </beans>

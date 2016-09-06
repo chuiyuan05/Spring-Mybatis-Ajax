@@ -30,4 +30,5 @@ dependencies {
     compile 'org.aspectj:aspectjweaver:1.8.9'
     //add jstl for jsp
     compile 'javax.servlet:jstl:1.2'
+    compile 'org.codehaus.jackson:jackson-mapper-asl:1.9.13'
 }
