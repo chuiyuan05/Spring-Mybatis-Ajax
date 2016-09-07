@@ -1,8 +1,8 @@
-#java class file 
+#java class file
 *.class
 
-#Gradle files 
-.gradle 
+#Gradle files
+.gradle
 build/
 .idea/
 out/
