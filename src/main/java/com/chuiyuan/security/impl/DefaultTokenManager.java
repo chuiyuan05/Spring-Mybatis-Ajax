@@ -20,7 +20,7 @@ public class DefaultTokenManager implements ITokenManager {
     /**
      * Keep token in JVM or Redis.
      */
-    private static Map<String, String> tokenMap = new ConcurrentHashMap<String, String>();
+    private static Map<String, String> tokenMap = new ExpiringMap<String, String>();
 
     /**
      * (UUID, username).
