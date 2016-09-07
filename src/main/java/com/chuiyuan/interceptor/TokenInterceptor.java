@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,7 +22,27 @@ public class TokenInterceptor implements HandlerInterceptor {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.info("==>TokenInterceptor:preHandle");
-        return true;
+        //判断url是否是公开地址(实际使用时将公开地址配置在文件中)
+        //这里公开地址是登录提交的地址
+        String url = request.getRequestURI();
+        if (url.endsWith("login.html")){
+            logger.info("==>login.html");
+            return true;
+        }
+        //If contains token
+        Cookie[]  cookies = request.getCookies();
+        if(cookies != null){
+            for (Cookie cookie : cookies){
+                if (cookie.getName().equals("token")) {
+                    String token = cookie.getName();
+                    if(tokenManager.checkToken(token))
+                        return true;
+                }
+            }
+        }
+        logger.info("==>No cookie, dispatch to login.html");
+        request.getRequestDispatcher("/pages/login.html").forward(request, response);
+        return false;
     }
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {

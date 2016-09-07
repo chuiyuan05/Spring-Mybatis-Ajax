@@ -5,7 +5,7 @@ $(document).ready(function(){
     //
     var token = $.cookie('token');
     if(!token || !token.length)
-        location.href = 'login.js';
+        location.href = '/pages/login.html';
 
     //read token
     $('#bttoken').click(function(){
