@@ -19,6 +19,9 @@ $(document).ready(function(){
                     var token = data.data.token ;
                     var username = data.data.username;
                     console.log('token:'+token+' ,username:'+username);
+                    // save to cookie and then jump to home
+                    $.cookie('token',token,{path:'/xygl',expires:1});
+                    $.cookie('username',username, {path:'/xygl', expires:1});
                     location.href = 'home.html';
                 }else {
                     var msg = data.meta.message;

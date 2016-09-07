@@ -1,7 +1,6 @@
 package com.chuiyuan.domain;
 
 import java.io.Serializable;
-import java.util.Date;
 
 /**
  * Created by chuiyuan on 16-8-29.

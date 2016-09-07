@@ -3,14 +3,15 @@ package com.chuiyuan.controller;
 import com.chuiyuan.bean.Response;
 import com.chuiyuan.bean.UserToken;
 import com.chuiyuan.domain.User;
-import com.chuiyuan.security.ITokenManager;
 import com.chuiyuan.security.impl.DefaultTokenManager;
 import com.chuiyuan.service.UserService;
-import com.chuiyuan.utils.MD5;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by chuiyuan on 16-9-6.
