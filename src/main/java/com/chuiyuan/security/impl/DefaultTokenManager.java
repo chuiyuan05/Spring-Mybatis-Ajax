@@ -2,6 +2,7 @@ package com.chuiyuan.security.impl;
 
 import com.chuiyuan.security.ITokenManager;
 import com.chuiyuan.utils.CodeUtil;
+import com.chuiyuan.utils.ExpiringMap;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
 

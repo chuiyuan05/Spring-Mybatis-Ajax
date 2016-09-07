@@ -2,7 +2,7 @@ package com.chuiyuan.mybatis;
 
 import com.chuiyuan.dao.mybatis.UserMapper;
 import com.chuiyuan.domain.User;
-import com.chuiyuan.utils.MD5;
+import com.chuiyuan.utils.CodeUtil;
 import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -37,7 +37,7 @@ public class TestMybatis {
     public void testInsertUser(){
         User user = new User();
         user.setUsername("lisj3");
-        user.setPasswd(MD5.convert("1234"));
+        user.setPasswd(CodeUtil.createMD5("1234"));
         user.setDep("that");
         user.setRole(2);
         //userMapper.insertUser(user);
@@ -63,7 +63,7 @@ public class TestMybatis {
     public void testFindUserByNameAndPasswd(){
         Map<String, String> params = new HashMap<String, String>() ;
         params.put("username","lisj");
-        params.put("passwd",MD5.convert("1234"));
+        params.put("passwd",CodeUtil.createMD5("1234"));
 
         User user = userMapper.findUserByNameAndPasswd(params);
         logger.info(user.toString());

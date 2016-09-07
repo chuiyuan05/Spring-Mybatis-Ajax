@@ -5,13 +5,26 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by chuiyuan on 16-9-7.
+ * Value Can not be null if using containsKey.
+ * Value can be null if using containsKeyCoarse.
  */
-public class ExpiringMap<K, V>
-{
+public class ExpiringMap<K, V> extends AbstractMap<K,V>
+        implements Map<K,V>{
+
+    private static long DEFAULT_LIFE_MILLIS = 7200000L;//2 hours.
+    private static long DEFAULT_CLEANUP_MILLIS = 14400000L;//4 hours
+
     private ConcurrentHashMap<K, Value> map = new ConcurrentHashMap<K, Value>();
     private PriorityQueue<Key> pq = new PriorityQueue<Key>();
 
     private Timer cleanupTimer;
+
+    /**
+     *Runs CleanupTask every 4 hours.
+     */
+    public ExpiringMap(){
+        this(DEFAULT_CLEANUP_MILLIS);
+    }
 
     public ExpiringMap(long cleanupMillis) {
         cleanupTimer = new Timer();
@@ -52,7 +65,8 @@ public class ExpiringMap<K, V>
         }
     }
 
-    public V get(K key) {
+    @Override
+    public V get(Object key) {
         Value v = map.get(key);
         if(v != null) {
             long curTime = System.currentTimeMillis();
@@ -65,6 +79,23 @@ public class ExpiringMap<K, V>
         return null;
     }
 
+    /**
+     * life_millis 2 hours by default.
+     * @param key
+     * @param value Can not be null here.
+     * @return
+     */
+    @Override
+    public V put(K key, V value){
+        return put(key, value, DEFAULT_LIFE_MILLIS);
+    }
+
+    /**
+     * @param key
+     * @param value Can not be null.
+     * @param lifeMillis
+     * @return
+     */
     public V put(K key, V value, long lifeMillis) {
         long expiryMillis = System.currentTimeMillis() + lifeMillis;
         Value v = new Value(value, expiryMillis);
@@ -76,6 +107,31 @@ public class ExpiringMap<K, V>
         } else {
             return ret.val;
         }
+    }
+
+    /**
+     * Equals to get(key)!=null, so value can not be null.
+     * @param key
+     * @return
+     */
+    @Override
+    public boolean containsKey(Object key) {
+        return get(key) != null;
+    }
+
+    /**
+     * Not accurate, entry may have been expired.
+     * So value can be null.
+     * @param key
+     * @return
+     */
+    public boolean containsKeyCoarse(Object key){
+        return map.containsKey(key);
+    }
+
+    @Override
+    public Set<Entry<K, V>> entrySet() {
+        return null;
     }
 
     public void cleanup() {
