@@ -11,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * Created by chuiyuan on 16-9-7.
  * Keep token in HashMap or Redis.
+ * Singleton by default in Spring.
  */
 @Component
 public class DefaultTokenManager implements ITokenManager {
