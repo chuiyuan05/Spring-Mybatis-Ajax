@@ -34,8 +34,8 @@ public class LoginController {
         String passwd = user.getPasswd();
 
         logger.info("==>"+username+":"+passwd);
-        //boolean isLogin = userService.login(username, passwd);
-        boolean isLogin = true ;
+        boolean isLogin = userService.login(username, passwd);
+        //boolean isLogin = true ;
         if(isLogin){
             String token = MD5.convert(username); //for test
             UserToken userToken = new UserToken() ;

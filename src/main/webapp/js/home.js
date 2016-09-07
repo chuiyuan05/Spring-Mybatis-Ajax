@@ -1,8 +1,9 @@
 /**
- * Created by chuiyuan on 16-9-5.
+ * Created by chuiyuan on 16-9-6.
  */
 $(document).ready(function(){
-    $("button").click(function(){
+    //read token
+    $("button1").click(function(){
         var username = $('#username').val();
         var passwd = $('#passwd').val();
         var user = {username:username, passwd:passwd};
@@ -15,20 +16,15 @@ $(document).ready(function(){
             data:JSON.stringify(user),
             mimeType:'application/json',
             success: function (data) {
-                if(data.meta.success){
-                    var token = data.data.token ;
-                    var username = data.data.username;
-                    console.log('token:'+token+' ,username:'+username);
-                }else {
-                    var msg = data.meta.message;
-                    console.log('fail msg:'+msg);
-                }
+                alert('success:'+data);
+                location.href = 'home.html';
             },
             error:function (data, status, er) {
-                console.log('http error:'+data);
+                alert('error:'+data);
             }
 
         });
     });
+    //read session
 
 });
