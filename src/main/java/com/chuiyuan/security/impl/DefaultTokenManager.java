@@ -1,6 +1,7 @@
 package com.chuiyuan.security.impl;
 
 import com.chuiyuan.security.ITokenManager;
+import com.chuiyuan.utils.CodeUtil;
 import com.chuiyuan.utils.MD5;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Component;
@@ -21,13 +22,13 @@ public class DefaultTokenManager implements ITokenManager {
     private static Map<String, String> tokenMap = new ConcurrentHashMap<String, String>();
 
     /**
-     * MD5 of username by default.
+     * (UUID, username).
      * Create and Store token in HashMap
      * @param username
      * @return
      */
     public String createToken(String username) {
-        String token = MD5.convert(username);
+        String token = CodeUtil.createUUID();
         logger.info("==>DefaultTokenManager:createToken:"+token);
         tokenMap.put(token, username);
         return token;
