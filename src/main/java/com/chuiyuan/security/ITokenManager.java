@@ -7,4 +7,6 @@ public interface ITokenManager {
     public String createToken(String username);
 
     public boolean checkToken(String token);
+
+    public boolean removeToken(String token);
 }

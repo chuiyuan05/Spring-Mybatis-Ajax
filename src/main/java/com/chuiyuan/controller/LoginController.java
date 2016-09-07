@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * Created by chuiyuan on 16-9-6.
  */
@@ -26,12 +29,17 @@ public class LoginController {
     @Autowired
     private DefaultTokenManager tokenManager ;
 
-    @RequestMapping(value = {"/user"}, method = RequestMethod.GET)
-    public @ResponseBody User get(){
-        User user = new User();
-        user.setUsername("cc");
-        user.setPasswd("dd");
-        return user;
+    @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
+    public @ResponseBody void logout(HttpServletRequest request){
+        Cookie [] cookies = request.getCookies() ;
+        if (cookies!= null && cookies.length>0){
+            for(Cookie cookie: cookies){
+                if(cookie.getName().equals("token")){
+                    logger.info("==>remove cookie");
+                    tokenManager.removeToken(cookie.getValue());
+                }
+            }
+        }
     }
 
     @RequestMapping(value = {"/login"}, method = RequestMethod.POST)

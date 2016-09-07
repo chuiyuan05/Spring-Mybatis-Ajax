@@ -20,8 +20,8 @@ $(document).ready(function(){
                     var username = data.data.username;
                     console.log('token:'+token+' ,username:'+username);
                     // save to cookie and then jump to home
-                    $.cookie('token',token,{expires:1});
-                    $.cookie('username',username, { expires:1});
+                    $.cookie('token',token);
+                    $.cookie('username',username);
                     location.href = '/pages/home.html';
                 }else {
                     var msg = data.meta.message;

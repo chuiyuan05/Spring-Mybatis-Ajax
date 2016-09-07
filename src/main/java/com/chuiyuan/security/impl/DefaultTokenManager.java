@@ -36,4 +36,12 @@ public class DefaultTokenManager implements ITokenManager {
     public boolean checkToken(String token) {
         return token!= null && token.length() >0 && tokenMap.containsKey(token);
     }
+
+    public boolean removeToken(String token) {
+        if(token != null && token.length()>0 && tokenMap.containsKey(token)){
+            tokenMap.remove(token);
+            return true ;
+        }
+        return false ;
+    }
 }
