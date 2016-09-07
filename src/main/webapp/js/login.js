@@ -19,6 +19,7 @@ $(document).ready(function(){
                     var token = data.data.token ;
                     var username = data.data.username;
                     console.log('token:'+token+' ,username:'+username);
+                    location.href = 'home.html';
                 }else {
                     var msg = data.meta.message;
                     console.log('fail msg:'+msg);

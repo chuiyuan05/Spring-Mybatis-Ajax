@@ -3,6 +3,8 @@ package com.chuiyuan.controller;
 import com.chuiyuan.bean.Response;
 import com.chuiyuan.bean.UserToken;
 import com.chuiyuan.domain.User;
+import com.chuiyuan.security.ITokenManager;
+import com.chuiyuan.security.impl.DefaultTokenManager;
 import com.chuiyuan.service.UserService;
 import com.chuiyuan.utils.MD5;
 import org.apache.log4j.Logger;
@@ -19,6 +21,9 @@ public class LoginController {
 
     @Autowired
     private UserService userService ;
+
+    @Autowired
+    private DefaultTokenManager tokenManager ;
 
     @RequestMapping(value = {"/user"}, method = RequestMethod.GET)
     public @ResponseBody User get(){
@@ -37,7 +42,7 @@ public class LoginController {
         boolean isLogin = userService.login(username, passwd);
         //boolean isLogin = true ;
         if(isLogin){
-            String token = MD5.convert(username); //for test
+            String token =  tokenManager.createToken(username);
             UserToken userToken = new UserToken() ;
             userToken.setUsername(username);
             userToken.setToken(token);
