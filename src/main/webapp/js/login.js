@@ -7,7 +7,7 @@ $(document).ready(function(){
         var passwd = $('#passwd').val();
         var user = {username:username, passwd:passwd};
         $.ajax({
-            url:'/rest/login',
+            url:'/login',
             type:'POST',
             dataType:'json',
             contentType: "application/json; charset=utf-8",
@@ -22,7 +22,7 @@ $(document).ready(function(){
                     // save to cookie and then jump to home
                     $.cookie('token',token,{expires:1});
                     $.cookie('username',username, { expires:1});
-                    location.href = 'home.html';
+                    location.href = '/pages/home.html';
                 }else {
                     var msg = data.meta.message;
                     console.log('fail msg:'+msg);

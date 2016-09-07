@@ -20,14 +20,15 @@ public class TokenInterceptor implements HandlerInterceptor {
     DefaultTokenManager tokenManager ;
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        logger.info("==>TokenInterceptor:preHandle");
         return true;
     }
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-
+        logger.info("==>TokenInterceptor:postHandle");
     }
 
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-
+        logger.info("==>TokenInterceptor:afterCompletion");
     }
 }
