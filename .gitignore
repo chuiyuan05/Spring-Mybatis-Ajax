@@ -6,5 +6,6 @@
 build/
 .idea/
 out/
+/src/main/resources/jdbc.properties
 
 

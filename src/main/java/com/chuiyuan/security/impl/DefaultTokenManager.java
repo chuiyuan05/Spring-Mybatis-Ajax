@@ -52,7 +52,7 @@ public class DefaultTokenManager implements ITokenManager {
     public boolean removeToken(String token) {
         listTokens();
         if(token != null && token.length()>0 && tokenMap.containsKey(token)){
-            tokenMap.remove(token);
+            //tokenMap.remove(token);
             return true ;
         }
         return false ;
