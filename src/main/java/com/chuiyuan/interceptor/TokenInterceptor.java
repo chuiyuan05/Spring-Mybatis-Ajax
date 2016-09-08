@@ -17,18 +17,24 @@ public class TokenInterceptor implements HandlerInterceptor {
 
     private static Logger logger = Logger.getLogger(TokenInterceptor.class);
 
+    private static final String[] IGNORE_URI = {"login"};
+
     @Autowired
     DefaultTokenManager tokenManager ;
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.info("==>TokenInterceptor:preHandle");
+        String url = request.getRequestURI();
+        logger.info("==>request url:"+url);
+
         //判断url是否是公开地址(实际使用时将公开地址配置在文件中)
         //这里公开地址是登录提交的地址
-        String url = request.getRequestURI();
-        if (url.endsWith("login.html")|| url.endsWith("login")){
-            logger.info("==>login");
-            return true;
+        for(String str : IGNORE_URI){
+            if(url.endsWith(str)){
+                return true ;
+            }
         }
+
         //If contains token
         Cookie[]  cookies = request.getCookies();
         if(cookies != null && cookies.length > 0){
