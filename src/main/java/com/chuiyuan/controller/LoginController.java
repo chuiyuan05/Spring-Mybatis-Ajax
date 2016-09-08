@@ -30,16 +30,18 @@ public class LoginController {
     private DefaultTokenManager tokenManager ;
 
     @RequestMapping(value = {"/logout"}, method = RequestMethod.POST)
-    public @ResponseBody void logout(HttpServletRequest request){
+    public @ResponseBody Response logout(HttpServletRequest request){
         Cookie [] cookies = request.getCookies() ;
         if (cookies!= null && cookies.length>0){
             for(Cookie cookie: cookies){
                 if(cookie.getName().equals("token")){
                     logger.info("==>remove cookie");
                     tokenManager.removeToken(cookie.getValue());
+                    return new Response().success();
                 }
             }
         }
+        return new Response().failure();
     }
 
     @RequestMapping(value = {"/login"}, method = RequestMethod.POST)

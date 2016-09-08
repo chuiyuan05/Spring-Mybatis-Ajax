@@ -17,7 +17,8 @@ public class TokenInterceptor implements HandlerInterceptor {
 
     private static Logger logger = Logger.getLogger(TokenInterceptor.class);
 
-    private static final String[] IGNORE_URI = {"login"};
+    private static final String[] IGNORE_URL = {"login"};
+    private static final String LOGIN_URL = "/pages/login.html";
 
     @Autowired
     DefaultTokenManager tokenManager ;
@@ -29,8 +30,9 @@ public class TokenInterceptor implements HandlerInterceptor {
 
         //判断url是否是公开地址(实际使用时将公开地址配置在文件中)
         //这里公开地址是登录提交的地址
-        for(String str : IGNORE_URI){
+        for(String str : IGNORE_URL){
             if(url.endsWith(str)){
+                logger.info("==>in IGNORE_URL");
                 return true ;
             }
         }
@@ -50,7 +52,7 @@ public class TokenInterceptor implements HandlerInterceptor {
             }
         }
         logger.info("==>No cookie, dispatch to login.html");
-        request.getRequestDispatcher("/pages/login.html").forward(request, response);
+        request.getRequestDispatcher(LOGIN_URL).forward(request, response);
         return false;
     }
 

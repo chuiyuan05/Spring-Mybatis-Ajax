@@ -14,8 +14,18 @@ $(document).ready(function(){
        $.ajax({
            url:'/logout',
            type:'POST',
-           success:function () {
-               location.href = '/pages/login.html'
+           success:function (data) {
+               if(data.meta.success){
+                   console.log("logout success");
+                   location.href = '/pages/login.html';
+               }else {
+                   console.log("logout failed");
+                   location.href = '/pages/login.html';
+               }
+           },
+           error: function (data, status, err) {
+               console.log("logout failed");
+               location.href = '/pages/login.html';
            }
        });
     });
