@@ -23,7 +23,7 @@ public class TokenInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         logger.info("==>TokenInterceptor:preHandle");
         //判断url是否是公开地址(实际使用时将公开地址配置在文件中)
-        //这里公开地址是登录and提交的地址
+        //这里公开地址是登录提交的地址
         String url = request.getRequestURI();
         if (url.endsWith("login.html")|| url.endsWith("login")){
             logger.info("==>login");
